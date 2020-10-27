@@ -16,3 +16,4 @@ let lca = images.createImage(`
     . . . . .
     `)
 reset()
+turtle.setPosition(0, 0)
