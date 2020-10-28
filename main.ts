@@ -40,6 +40,7 @@ input.onButtonPressed(Button.B, function () {
         }
     }
     reset()
+    line = 0
     plot_line()
 })
 function plot_line () {
