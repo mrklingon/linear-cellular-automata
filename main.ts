@@ -12,12 +12,16 @@ function doNeighbors (num: number) {
     tot = 0
     tot += state[num]
     if (num == 0) {
-        tot += state[4]
+        if (wrap == 1) {
+            tot += state[4]
+        }
     } else {
         tot += state[num - 1]
     }
     if (num == 4) {
-        tot += state[0]
+        if (wrap == 1) {
+            tot += state[0]
+        }
     } else {
         tot += state[num + 1]
     }
@@ -43,6 +47,15 @@ input.onButtonPressed(Button.B, function () {
     line = 0
     plot_line()
 })
+input.onGesture(Gesture.Shake, function () {
+    if (wrap == 1) {
+        wrap = 0
+        basic.showIcon(IconNames.Heart)
+    } else {
+        wrap = 1
+        basic.showIcon(IconNames.Sad)
+    }
+})
 function plot_line () {
     for (let index = 0; index <= 4; index++) {
         led.unplot(index, line)
@@ -64,6 +77,7 @@ function reset () {
     }
 }
 let tot = 0
+let wrap = 0
 let line = 0
 let result: number[] = []
 let state: number[] = []
@@ -73,3 +87,4 @@ result = [0, 0, 0, 0, 0]
 reset()
 line = 0
 plot_line()
+wrap = 0
