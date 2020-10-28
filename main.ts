@@ -82,9 +82,8 @@ let line = 0
 let result: number[] = []
 let state: number[] = []
 led.unplot(2, 2)
-state = [0, 0, 0, 0, 0]
+state = [0, 0, 1, 0, 0]
 result = [0, 0, 0, 0, 0]
-reset()
 line = 0
 plot_line()
 wrap = 0
